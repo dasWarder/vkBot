@@ -2,16 +2,19 @@ package api.bot;
 
 import com.petersamokhin.bots.sdk.clients.Group;
 import com.petersamokhin.bots.sdk.objects.Message;
+import org.apache.log4j.BasicConfigurator;
 
-import java.awt.*;
+
 import java.time.DayOfWeek;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Main {
+
     private static final String ACCESS_TOKEN = "f17844f0537664289f20204d6a33ad45ec1079a68cf2011989264529477946b6f5f70c911a38b28b1e660";
 
     public static void main(String[] args) {
+
+        BasicConfigurator.configure();
 
         Group group = new Group(197144715, ACCESS_TOKEN);
 
@@ -43,25 +46,25 @@ public class Main {
                     .send();
         });
 
-        group.onCommand("/расписание", message -> {
-            new Message()
-                    .from(group)
-                    .to(message.authorId())
-                    .text("11:30 - выезжает автобус на хутор" + "\n"
-                            + "12:00 - 15:30 - занятия по расписанию"+ "\n"
-                            + "15:30 - 16:00 - обед" + "\n"
-                            + "16:00 - 18:00 - занятия по расписанию" + "\n"
-                            + "18:00 - автобус заберает всех домой" + "\n")
-                    .send();
-        });
-
-        group.onCommand("/праздники", message -> {
-            new Message()
-                    .from(group)
-                    .to(message.authorId())
-                    .text("Любое воскресенье для нас праздник" + "\n")
-                    .send();
-        });
+//        group.onCommand("/расписание", message -> {
+//            new Message()
+//                    .from(group)
+//                    .to(message.authorId())
+//                    .text("11:30 - выезжает автобус на хутор" + "\n"
+//                            + "12:00 - 15:30 - занятия по расписанию"+ "\n"
+//                            + "15:30 - 16:00 - обед" + "\n"
+//                            + "16:00 - 18:00 - занятия по расписанию" + "\n"
+//                            + "18:00 - автобус заберает всех домой" + "\n")
+//                    .send();
+//        });
+//
+//        group.onCommand("/праздники", message -> {
+//            new Message()
+//                    .from(group)
+//                    .to(message.authorId())
+//                    .text("Любое воскресенье для нас праздник" + "\n")
+//                    .send();
+//        });
 
     }
 }
